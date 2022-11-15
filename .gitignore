@@ -15,3 +15,5 @@ python/build
 *.so
 *.swp
 
+*.egg-info/
+.vscode/

@@ -24,7 +24,7 @@ MAP_SIZE_METERS         = 10
 LIDAR_DEVICE            = '/dev/ttyACM0'
 
 from breezyslam.algorithms import RMHC_SLAM
-from breezyslam.sensors import XVLidar as LaserModel
+from breezyslam.sensors import make_xv_lidar_model
 
 from xvlidar import XVLidar as Lidar
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     lidar = Lidar(LIDAR_DEVICE)
 
     # Create an RMHC SLAM object with a laser model and optional robot model
-    slam = RMHC_SLAM(LaserModel(), MAP_SIZE_PIXELS, MAP_SIZE_METERS)
+    slam = RMHC_SLAM(make_xv_lidar_model(), MAP_SIZE_PIXELS, MAP_SIZE_METERS)
 
     # Set up a SLAM display
     viz = MapVisualizer(MAP_SIZE_PIXELS, MAP_SIZE_METERS, 'SLAM')
